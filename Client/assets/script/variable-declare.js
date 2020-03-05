@@ -18,6 +18,7 @@ let $editSubmit = $('#edit-submit')
 let $loginFormReset = $('#login-form')[0]
 
 let $tableTodo = $('#table-todo tbody')
+let $tableTodoContent = $('#table-todo > tbody:last-child')
 
 let $loginEmail = $(`#email-login`)
 let $loginPassword = $(`#password-login`)

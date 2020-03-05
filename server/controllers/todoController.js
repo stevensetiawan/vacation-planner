@@ -1,12 +1,10 @@
 const { Todo } = require('../models')
 const createError = require('../helpers/createErrors')
-const deepai = require('deepai'); // OR include deepai.min.js as a script tag in your HTML
-
-deepai.setApiKey('quickstart-QUdJIGlzIGNvbWluZy4uLi4K');
+const axios = require(`axios`)
 
 class todoController {
 
-    static add(req, res, next) {      
+    static add(req, res, next) {
         let obj = {
             title: req.body.title,
             description: req.body.description,
@@ -29,16 +27,29 @@ class todoController {
             },
             order: [['id', 'ASC']]
         }
-         
+
         Todo.findAll(id)
             .then(data => {
-                // (async function () {
-                //     var resp = await deepai.callStandardApi("summarization", {
-                //         text: data
-                //     });
-                //     console.log(resp);
-                // })() 
-                console.log(data)
+                // console.log(data)
+
+                // summarization from deepai is abit weird
+                // axios({
+                //     method: `POST`,
+                //     url: `https://api.deepai.org/api/summarization`,
+                //     headers: {
+                //         "api-key": quickstart-QUdJIGlzIGNvbWluZy4uLi4K
+                //     },
+                //     data: {
+                //         text: `test`
+                //     }
+                // })
+                //     .then(data => {
+                //         console.log(data)
+                //     })
+                //     .catch(err => {
+                //         console.log(err)
+                //     })
+
                 res.status(200).json(data)
             }).catch(err => {
                 res.status(500).json(err)
