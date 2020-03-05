@@ -1,6 +1,7 @@
 $(document).ready(function () {
     if (localStorage.getItem("token")) {
         getTodo()
+        //getWeather()
         $list.show();
     } else {
         $login.show()
@@ -70,5 +71,12 @@ $(document).ready(function () {
     $loginForm.submit(function (event) {
         event.preventDefault()
         loginUser()
+    })
+
+    $buttonWeather.click(function (event){
+        event.preventDefault()
+        getWeather()
+        $weather.show()
+        $list.hide()
     })
 });
