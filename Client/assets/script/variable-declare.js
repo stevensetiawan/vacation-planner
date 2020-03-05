@@ -5,6 +5,7 @@ let $buttonDelete = $(`#btn-delete`)
 let $buttonList = $(`#btn-list`)
 let $buttonAdd = $(`#btn-add`)
 let $buttonEdit = $(`#btn-edit`)
+let $buttonWeather = $('#btn-weather')
 
 let $loginForm = $('#login-form')
 let $registerForm = $('#register-form')
@@ -14,6 +15,7 @@ let $editSubmit = $('#edit-submit')
 let $loginFormReset = $('#login-form')[0]
 
 let $tableTodo = $('#table-todo tbody')
+let $tableWeather = $('#table-weather tbody')
 
 let $loginEmail = $(`#email-login`)
 let $loginPassword = $(`#password-login`)
@@ -39,3 +41,4 @@ let $login = $('#login')
 let $add = $('#add')
 let $edit = $('#edit')
 let $list = $('#list')
+let $weather = $('#weather')
