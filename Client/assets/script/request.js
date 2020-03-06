@@ -78,6 +78,23 @@ let updateTodo = (id) => {
     })
 }
 
+function checkTodo(id, data) {
+    console.log(id, data)
+    $.ajax({
+        url: `http://localhost:3000/todos/${id}`,
+        type: "PUT",
+        headers: { token: localStorage.getItem("token") },
+        data,
+        success: function (data) {
+            getTodo()
+        },
+        fail: function(err) {
+            console.log("checkbox")
+            console.log(err)
+        }
+    })
+}
+
 let registerUser = () => {
     $.ajax({
         url: "http://localhost:3000/users/register",
@@ -88,7 +105,8 @@ let registerUser = () => {
         },
         success: function (data) {
             $register.hide()
-            $login.show()
+            $list.show()
+            getTodo()
         }
 
     })

@@ -8,12 +8,14 @@ $(document).ready(function () {
 
     $buttonRegister.click(function (event) {
         event.preventDefault()
+        // $registerForm.reset()
         $login.hide()
         $register.show()
     })
 
     $buttonLogin.click(function (event) {
         event.preventDefault()
+        // $loginForm.reset()
         $login.show()
         $register.hide()
     })
@@ -32,7 +34,10 @@ $(document).ready(function () {
         $edit.hide()
         $add.hide()
         $login.show()
-        
+        var auth2 = gapi.auth2.getAuthInstance();
+        auth2.signOut().then(function () {
+          console.log('User signed out.');
+        });
     })
 
     $buttonList.click(function (event){
@@ -76,4 +81,20 @@ $(document).ready(function () {
         event.preventDefault()
         loginUser()
     })
+    
 });
+function onSignIn(googleUser) {
+    var id_token = googleUser.getAuthResponse().id_token;
+    $.ajax({
+        type:"POST",
+        url:"http://localhost:3000/users/googlesignin",
+        data:{
+            id_token
+        },
+        success:function(response ){
+            console.log(response)
+            localStorage.setItem("token",response.token)
+            getTodo()
+        }
+    })
+  }

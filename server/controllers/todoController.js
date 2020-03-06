@@ -1,6 +1,5 @@
 const { Todo } = require('../models')
 const createError = require('../helpers/createErrors')
-const axios = require(`axios`)
 
 class todoController {
 
@@ -30,28 +29,9 @@ class todoController {
 
         Todo.findAll(id)
             .then(data => {
-                // console.log(data)
-
-                // summarization from deepai is abit weird
-                // axios({
-                //     method: `POST`,
-                //     url: `https://api.deepai.org/api/summarization`,
-                //     headers: {
-                //         "api-key": quickstart-QUdJIGlzIGNvbWluZy4uLi4K
-                //     },
-                //     data: {
-                //         text: `test`
-                //     }
-                // })
-                //     .then(data => {
-                //         console.log(data)
-                //     })
-                //     .catch(err => {
-                //         console.log(err)
-                //     })
-
                 res.status(200).json(data)
             }).catch(err => {
+                console.log(err)
                 res.status(500).json(err)
             })
     }
@@ -109,6 +89,7 @@ class todoController {
         let obj = {
             title: req.body.title,
             description: req.body.description,
+            status: req.body.status,
             due_date: req.body.due_date
         }
 

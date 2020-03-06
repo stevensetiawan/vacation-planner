@@ -4,8 +4,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="google-signin-client_id" content="678508956941-07c4m62ngqkc0maqgf6s6h82i9trva9c.apps.googleusercontent.com">
 
-  <title>Fancy Todo List</title>
+  <title>Event Planner</title>
 
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
     integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
@@ -21,6 +22,7 @@
   <!-- login start -->
   <div class="app" id="login">
     <h1>Login</h1>
+    <button class="btn btn-primary float-right mb-3" id='btn-register'>Register</button>
     <form id="login-form">
       <div class="form-group">
         <label for="email">Email address</label>
@@ -32,8 +34,7 @@
         <input type="password" class="form-control" id="password-login" placeholder="input your password">
       </div>
       <button type="submit" class="btn btn-primary">Login</button>
-      or
-      <button class="btn btn-primary" id='btn-register'>Register</button>
+      <div class="g-signin2" data-onsuccess="onSignIn"></div>
     </form>
   </div>
   <!-- login finish -->
@@ -41,6 +42,7 @@
   <!-- register start -->
   <div class="app" id="register">
     <h1>Register</h1>
+    <button class="btn btn-primary float-right mb-3" id='btn-login'>Login</button>
     <form id="register-form">
       <div class="form-group">
         <label for="email">Email address</label>
@@ -52,27 +54,25 @@
         <input type="password" class="form-control" id="password-register" placeholder="input your password">
       </div>
       <button type="submit" class="btn btn-primary">Register</button>
-      or
-      <button class="btn btn-primary" id='btn-login'>Login</button>
     </form>
   </div>
   <!-- register finish -->
 
   <!-- add ToDo -->
   <div class="app" id="add">
-    <h1>Add ToDo</h1>
+    <h1>Add Event</h1>
     <form id="add-form">
       <div class="form-group">
-        <label for="title">ToDo Title</label>
-        <input type="text" class="form-control" id="add-title" placeholder="input your todo">
+        <label for="title">Event Title</label>
+        <input type="text" class="form-control" id="add-title" placeholder="event title">
       </div>
       <div class="form-group">
         <label for="description">Description</label>
-        <input type="text" class="form-control" id="add-description" placeholder="input your description">
+        <input type="text" class="form-control" id="add-description" placeholder="description">
       </div>
       <div class="form-group">
         <label for="Date">Due date</label>
-        <input type="date" class="form-control" id="add-date" placeholder="input your date">
+        <input type="date" class="form-control" id="add-date" placeholder="date">
       </div>
       <button type="submit" class="btn btn-primary">Add</button>
       <button class="btn btn-primary" id='btn-list'>Back to List</button>
@@ -83,10 +83,10 @@
 
   <!-- edit ToDo -->
   <div class="app" id="edit">
-    <h1>Edit ToDo</h1>
+    <h1>Edit Event</h1>
     <form id="edit-form">
       <div class="form-group">
-        <label for="title">ToDo Title</label>
+        <label for="title">Event Title</label>
         <input type="text" class="form-control" id="edit-title">
       </div>
       <div class="form-group">
@@ -106,8 +106,8 @@
 
   <!-- ToDo list -->
   <div class="app" id="list">
-    <h1>ToDo list</h1>
-    <button class="btn btn-primary mb-3 mt-3" id='btn-add'>Add Todo</button>
+    <h1>Event list</h1>
+    <button class="btn btn-primary mb-3 mt-3" id='btn-add'>Add event</button>
     <button class="btn btn-primary logout float-right mt-3">Log out</button>
     <table class="table" id="table-todo">
       <thead class="thead-dark">
@@ -127,6 +127,7 @@
   </div>
   <!-- ToDo list finish -->
 
+  <script src="https://apis.google.com/js/platform.js" async defer></script>
   <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
     crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
