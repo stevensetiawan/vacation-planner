@@ -45,7 +45,6 @@ let getEditDataTodo = (id) => {
         }
     })
 }
-
 let updateStatusTodo = (id) => {
     $.ajax({
         url: `http://localhost:3000/todos/${id}`,
@@ -57,7 +56,6 @@ let updateStatusTodo = (id) => {
         }
     })
 }
-
 let updateTodo = (id) => {
     $.ajax({
         url: `http://localhost:3000/todos/${id}`,
@@ -77,7 +75,6 @@ let updateTodo = (id) => {
         }
     })
 }
-
 function checkTodo(id, data) {
     console.log(id, data)
     $.ajax({
@@ -94,7 +91,6 @@ function checkTodo(id, data) {
         }
     })
 }
-
 let registerUser = () => {
     $.ajax({
         url: "http://localhost:3000/users/register",
