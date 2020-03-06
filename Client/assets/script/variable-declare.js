@@ -2,9 +2,10 @@ let $buttonLogin = $(`#btn-login`)
 let $buttonRegister = $(`#btn-register`)
 let $buttonLogout = $(`.logout`)
 let $buttonDelete = $(`#btn-delete`)
-let $buttonList = $(`#btn-list`)
+let $buttonList = $(`.list`)
 let $buttonAdd = $(`#btn-add`)
 let $buttonEdit = $(`#btn-edit`)
+let $buttonWeather = $('#btn-weather')
 
 let $doneChecker = $(`#done-checker`)
 
@@ -18,6 +19,8 @@ let $editSubmit = $('#edit-submit')
 let $loginFormReset = $('#login-form')[0]
 
 let $tableTodo = $('#table-todo tbody')
+let $tableWeather = $('#table-weather tbody')
+let $tableTodoContent = $('#table-todo > tbody:last-child')
 
 let $loginEmail = $(`#email-login`)
 let $loginPassword = $(`#password-login`)
@@ -44,3 +47,4 @@ let $login = $('#login')
 let $add = $('#add')
 let $edit = $('#edit')
 let $list = $('#list')
+let $weather = $('#weather')

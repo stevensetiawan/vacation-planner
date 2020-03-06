@@ -1,12 +1,9 @@
 const { Todo } = require('../models')
 const createError = require('../helpers/createErrors')
-const deepai = require('deepai'); // OR include deepai.min.js as a script tag in your HTML
-
-deepai.setApiKey('quickstart-QUdJIGlzIGNvbWluZy4uLi4K');
 
 class todoController {
 
-    static add(req, res, next) {      
+    static add(req, res, next) {
         let obj = {
             title: req.body.title,
             description: req.body.description,
@@ -29,16 +26,8 @@ class todoController {
             },
             order: [['id', 'ASC']]
         }
-         
         Todo.findAll(id)
             .then(data => {
-                // (async function () {
-                //     var resp = await deepai.callStandardApi("summarization", {
-                //         text: data
-                //     });
-                //     console.log(resp);
-                // })() 
-                console.log(data)
                 res.status(200).json(data)
             }).catch(err => {
                 res.status(500).json(err)
@@ -46,7 +35,7 @@ class todoController {
     }
 
     static showOne(req, res, next) {
-        console.log("masuk show one")
+        // console.log("masuk show one")
         let id = {
             where: {
                 id: req.params.id
@@ -98,6 +87,7 @@ class todoController {
         let obj = {
             title: req.body.title,
             description: req.body.description,
+            status: req.body.status,
             due_date: req.body.due_date
         }
 
