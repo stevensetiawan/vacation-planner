@@ -1,4 +1,5 @@
 let getTodo = () => {
+    $(`#quotes`).empty()
     $.ajax({
         url: "http://localhost:3000/todos",
         type: "GET",
@@ -25,6 +26,7 @@ let getTodo = () => {
                     })
                 })
             });
+            forismatic()
         }
     })
 }
