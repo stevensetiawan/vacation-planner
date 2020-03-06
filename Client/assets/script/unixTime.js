@@ -27,7 +27,6 @@ function convert(unix_timestamp){
     return day
 }
 
-module.exports = convert
 
 // console.log('ok')
 //console.log(convert(1583431200))

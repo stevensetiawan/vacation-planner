@@ -1,5 +1,3 @@
-const convertDay = require('./unixTime')
-
 let getWeather = () => {
     $.ajax({
         url: "http://localhost:3000/weather/5daysforecast",
