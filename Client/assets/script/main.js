@@ -8,12 +8,14 @@ $(document).ready(function () {
 
     $buttonRegister.click(function (event) {
         event.preventDefault()
+        $registerForm[0].reset()
         $login.hide()
         $register.show()
     })
 
     $buttonLogin.click(function (event) {
         event.preventDefault()
+        $loginForm[0].reset()
         $login.show()
         $register.hide()
     })
