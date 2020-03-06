@@ -35,7 +35,7 @@ class todoController {
     }
 
     static showOne(req, res, next) {
-        console.log("masuk show one")
+        // console.log("masuk show one")
         let id = {
             where: {
                 id: req.params.id

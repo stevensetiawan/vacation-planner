@@ -98,7 +98,7 @@ class UserController {
                     }
                 })
                 .then(data => {
-                    console.log(data)
+                    // console.log(data)
                     if (data) {
                         var token = jwt.jwtSign(data.id)
                     }

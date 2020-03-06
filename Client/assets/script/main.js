@@ -42,6 +42,7 @@ $(document).ready(function () {
         event.preventDefault()
         $add.hide()
         $edit.hide()
+        $(`#weather`).hide()
         $list.show()
     })
 
@@ -53,7 +54,9 @@ $(document).ready(function () {
 
     $addForm.submit(function (event) {
         event.preventDefault()
-        addTodo()
+        translate()
+        // addTodo()
+        console.log("ok")
         $addForm[0].reset()
     })
     $doneChecker.click(function (event){
@@ -83,6 +86,7 @@ $(document).ready(function () {
         getWeather()
         $weather.show()
         $list.hide()
+        $login.hide()
     })
 
     

@@ -75,7 +75,7 @@
         <input type="date" class="form-control" id="add-date" placeholder="date">
       </div>
       <button type="submit" class="btn btn-primary">Add</button>
-      <button class="btn btn-primary" id='btn-list'>Back to List</button>
+      <button class="btn btn-primary list" id='btn-list'>Back to List</button>
       <button class="btn btn-primary logout">Log Out</button>
     </form>
   </div>
@@ -98,7 +98,7 @@
         <input type="text" class="form-control" id="edit-date">
       </div>
       <button type="submit" class="btn btn-primary" id="edit-submit">Submit</button>
-      <button class="btn btn-primary" id='btn-list'>Back to List</button>
+      <button class="btn btn-primary list" id='btn-list'>Back to List</button>
       <button class="btn btn-primary logout">Log Out</button>
     </form>
   </div>
@@ -109,11 +109,12 @@
     <h1>Event list</h1>
     <button class="btn btn-primary mb-3 mt-3" id='btn-add'>Add event</button>
     <button class="btn btn-primary logout float-right mt-3">Log out</button>
+    <button class="btn btn-primary float-right mt-3" id='btn-weather'>See Weather</button>
     <table class="table" id="table-todo">
       <thead class="thead-dark">
         <tr>
           <th scope="col">#</th>
-          <th scope="col">Title</th>
+          <th scope="col">Event</th>
           <th scope="col">Description</th>
           <th scope="col">Status</th>
           <th scope="col">Due date</th>
@@ -132,6 +133,8 @@
 
 <div class ="app" id="weather">
   <button class="btn btn-primary logout">Log out</button>
+  <button class="btn btn-primary list float-right" id='btn-list'>Back to List</button>
+
   <h2>Weather forecast</h2>
   <table class="table" id="table-weather">
     <thead class="thead-dark">
@@ -167,6 +170,7 @@
   <script src='assets/script/main.js'></script>
   <script src='assets/script/unixTime.js'></script>
   <script src='assets/script/weather.js'></script>
+  <script src='assets/script/translator.js'></script>
 </body>
 
 </html>
