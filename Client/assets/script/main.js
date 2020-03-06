@@ -1,7 +1,6 @@
 $(document).ready(function () {
     if (localStorage.getItem("token")) {
         getTodo()
-        //getWeather()
         $list.show();
     } else {
         $login.show()
@@ -33,7 +32,10 @@ $(document).ready(function () {
         $edit.hide()
         $add.hide()
         $login.show()
-        
+        var auth2 = gapi.auth2.getAuthInstance();
+        auth2.signOut().then(function () {
+          console.log('User signed out.');
+        });
     })
 
     $buttonList.click(function (event){
@@ -54,7 +56,10 @@ $(document).ready(function () {
         addTodo()
         $addForm[0].reset()
     })
-
+    $doneChecker.click(function (event){
+        event.preventDefault()
+        updateStatusTodo()
+    })
     $editForm.submit(function (event){
         event.preventDefault()
         let id = $editSubmit.data('param')
@@ -72,11 +77,28 @@ $(document).ready(function () {
         event.preventDefault()
         loginUser()
     })
-
+  
     $buttonWeather.click(function (event){
         event.preventDefault()
         getWeather()
         $weather.show()
         $list.hide()
     })
+
+    
 });
+function onSignIn(googleUser) {
+    var id_token = googleUser.getAuthResponse().id_token;
+    $.ajax({
+        type:"POST",
+        url:"http://localhost:3000/users/googlesignin",
+        data:{
+            id_token
+        },
+        success:function(response ){
+            console.log(response)
+            localStorage.setItem("token",response.token)
+            getTodo()
+        }
+    })
+  }

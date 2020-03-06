@@ -4,7 +4,6 @@ const createError = require('../helpers/createErrors')
 class todoController {
 
     static add(req, res, next) {
-        console.log(req.body)
         let obj = {
             title: req.body.title,
             description: req.body.description,
@@ -88,6 +87,7 @@ class todoController {
         let obj = {
             title: req.body.title,
             description: req.body.description,
+            status: req.body.status,
             due_date: req.body.due_date
         }
 
