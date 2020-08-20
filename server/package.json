@@ -7,7 +7,7 @@
     "google-auth-library": "^5.10.1",
     "http-errors": "^1.7.3",
     "axios": "^0.19.2",
-    "bcrypt": "^4.0.0",
+    "bcrypt": "^5.0.0",
     "cors": "^2.8.5",
     "deepai": "^1.0.15",
     "dotenv": "^8.2.0",
